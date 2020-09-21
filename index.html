@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Quiz</title>
+    <!-- External CDN - CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <!-- Game Info Link -->
+        <nav class="navbar navbar-light bg-light mb-2">
+            <a class="modal-button nav-link ml-1" data-toggle="modal" data-target="#scoreboardModal"><img src="./Assets/userGroup.svg" width="30" height="30" viewBox="0 0 30 30"></a>
+        <!-- Timer -->
+            <div class="timer d-flex justify-content-center align-items-center text-center">
+            <div class="timeRemaining">5</div>
+        </div>
+    </div>
+        </nav>
+    <!-- Game Info Modal -->
+    <div class="modal fade" id="scoreboardModal" tabindex="-1" role="dialog" aria-labelledby="recentFive" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Info</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              You have 30 seconds to answer as many questions as you can. Each correct answer is 5 points. If you get an question wrong, 1 point will be deducted from your final score.
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Main Section, Dynamic -->
+    <main>
+        <section id="start-screen" class="jumbotron jumbotron-fluid text-center container">
+            <h1 class="display-4">Test Your Programming Knowledge</h1>
+            <button type="button" id="begin" class="btn btn-dark">Start Quiz</button>
+        </section>
+        <section id="quiz-container" class="jumbotron jumbotron-fluid text-center container d-none">
+            <div id="question-title" class="h6"></div>
+                <div id="question-choices"></div>
+        </section>
+        <section id="submitScore" class="container text-center d-none">
+            <div>
+                <span class="yourScore"></span>
+                <textarea id="userName" class="form-control" placeholder="Enter User Name"></textarea>
+                <button id="submit" class="btn btn-dark mt-2">Submit</button>
+            </div>
+        </section>
+        <section id="scoreboard" class="container text-center d-none">
+                <span id="highScore"></span><br>    
+                <span class="yourScore"></span><br>
+                <button id="tryAgain" class="btn btn-dark mt-2">Try Again</button>
+        </section>
+        <hr>
+        <footer>
+            <p id="feedback" class="text-center"></p>
+        </footer>
+    </main>
+    <script 
+        src="https://code.jquery.com/jquery-3.5.1.js" 
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
+        crossorigin="anonymous">
+    </script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous">
+    </script>
+    <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous">
+    </script>
+    <script src="logic.js"></script>
+</body>
+</html>
