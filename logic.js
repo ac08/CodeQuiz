@@ -56,9 +56,10 @@ $(document).on("click", ".selection", function(){
         $('#feedback').html("Correct!")
         currentQuestionIndex = currentQuestionIndex + 1;
         getQuestion();
-    } else 
+    } else {
         userScore = (userScore) - 1;
         $('#feedback').html("Wrong!");
+    };
 });
 
 // Click event configured on 'Submit' button (id=submit) to transition screen scoreboard el displaying scores 
