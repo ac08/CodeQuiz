@@ -28,7 +28,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Info</h5>
+              <h5 class="modal-title">Info</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -42,14 +42,17 @@
     </header>
     <!-- Main Section, Dynamic -->
     <main>
+        <!-- Start Screen Section - Disappears when Quiz Begins -->
         <section id="start-screen" class="jumbotron jumbotron-fluid text-center container">
             <h1 class="display-4">Test Your Programming Knowledge</h1>
             <button type="button" id="begin" class="btn btn-dark">Start Quiz</button>
         </section>
+        <!-- Quiz Screen Section - Disappears when there are no remaining questions -->
         <section id="quiz-container" class="jumbotron jumbotron-fluid text-center container d-none">
             <div id="question-title" class="h6"></div>
                 <div id="question-choices"></div>
         </section>
+        <!-- Submission Page - Disappears when Quiz is Submitted -->
         <section id="submitScore" class="container text-center d-none">
             <div>
                 <span class="yourScore"></span>
@@ -57,16 +60,19 @@
                 <button id="submit" class="btn btn-dark mt-2">Submit</button>
             </div>
         </section>
+        <!-- Scoreboard Page - Disappears when Page Refreshes or Try Again button is clicked -->
         <section id="scoreboard" class="container text-center d-none">
                 <span id="highScore"></span><br>    
                 <span class="yourScore"></span><br>
                 <button id="tryAgain" class="btn btn-dark mt-2">Try Again</button>
         </section>
         <hr>
+        <!-- Feedback Section -->
         <footer>
             <p id="feedback" class="text-center"></p>
         </footer>
     </main>
+    <!-- External jQuery and Bootstrap CDNs -->
     <script 
         src="https://code.jquery.com/jquery-3.5.1.js" 
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
