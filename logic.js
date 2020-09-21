@@ -25,7 +25,8 @@ let questions = [
 // Global Variable Declaration
 let userScore            = 0;
 let yourScore            = $('.yourScore');
-let timeRemaining        = $('.timeRemaining');
+let timeRemainingEl      = $('.timeRemaining');
+let timeRemaining        = 30;
 let currentQuestionIndex = 0;
 let startScreenEl        = $('#start-screen');
 let beginScreenEl        = $('#quiz-container');
@@ -83,43 +84,18 @@ $('#tryAgain').on("click", function () {
 });
 
 // Functions 
-// function timer() {
-//     let timer = parseInt(timeRemaining.html());
-//     if (timer > 0) {
-//         let interval = setInterval(function() {
-//             timeRemaining.html(timer--);
-//         }, 1000);
-//     } else {
-//         clearInterval(interval);
-//         alert('YOUR TIME IS UP');
-//     };
-// };
-
+// NEED TO ADD LOGIC SO THAT WHEN TIME IS AT ZERO, SUBMIT SCREEN APPEARS 
 function timer() {
-    let timer = parseInt(timeRemaining.html());
-    if (timer > 0) {
-        setInterval(function() {
-            timeRemaining.html(timer--);
-            
-        function timeCheck() {
-            if (timer === 0) {
-                alert('test');
-            };
+    let interval = setInterval(function() {
+        timeRemaining--;
+        $(timeRemainingEl).text(timeRemaining);
+        if (timeRemaining === 0) {
+            clearInterval(interval);
+            $(beginScreenEl).addClass("d-none");
+            $(submitScoreEl).removeClass("d-none");    
         };
-            timeCheck();
-        }, 1000);
-    } 
+    }, 1000);
 };
-
-
-// function timer() {
-//     let timer = parseInt(timeRemaining.html());
-//     do {
-//         setInterval(function() {
-//             timeRemaining.html(timer--);
-//         }, 1000);
-//     } while (timer > 0);
-// };
 
 // Function configured transition screen between different questions and appropriately display different choices as buttons with configured classes and attributes
 function getQuestion() {
