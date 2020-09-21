@@ -39,6 +39,7 @@ let currentTitle         = questions[currentQuestionIndex].question;
 let userName             = $('#userName');
 
 // Event Listeners 
+// Click event configured on 'Start Quiz' button (id=begin) to transition screen to quiz questions
 $("#begin").on("click", function() {
     $(startScreenEl).addClass("d-none");
     $(beginScreenEl).removeClass("d-none");
@@ -46,6 +47,7 @@ $("#begin").on("click", function() {
     timer();
 });
 
+// Click event configured on 'selection' buttons (class=selection) to transition between questions and record user scores 
 $(document).on("click", ".selection", function(){
     $('#feedback').empty();
     let selection = this.value;
@@ -59,6 +61,7 @@ $(document).on("click", ".selection", function(){
         $('#feedback').html("Wrong!");
 });
 
+// Click event configured on 'Submit' button (id=submit) to transition screen scoreboard el displaying scores 
 $('#submit').on("click", function(){
     if (userName.val() === "") {
         $('#feedback').html("Please Enter a User Name!");
@@ -66,11 +69,14 @@ $('#submit').on("click", function(){
         $(submitScoreEl).addClass("d-none");
         $(scoreboardEl).removeClass("d-none");
         $(yourScore).html("Your Score: " + userScore);
+        // High Score is saved to local storage
         saveHighScore();
+        // Scores in local storage are reconfigured so that high score displays on scoreboard el
         analyzeHighScores();
       }
 });
 
+// Click event configured on 'Try Again' button (id=tryAgain) to reload page for user to begin quiz again
 $('#tryAgain').on("click", function () { 
     location.reload();
 });
@@ -114,17 +120,7 @@ function timer() {
 //     } while (timer > 0);
 // };
 
-
-function analyzeHighScores() {
-    let arrOfScores = [];
-    let localStorageArr = JSON.parse(window.localStorage.getItem("topScore"));
-    localStorageArr.forEach(function(el) {
-        arrOfScores.push(el.score);
-        arrOfScores.sort(function(a, b){return b-a});
-    });
-    $("#highScore").html("High Score: " + arrOfScores[0]);
-};
-
+// Function configured transition screen between different questions and appropriately display different choices as buttons with configured classes and attributes
 function getQuestion() {
     if (currentQuestionIndex === questions.length -1) {
         $('#feedback').empty();
@@ -150,6 +146,7 @@ function getQuestion() {
     }
 };
 
+// Function configured to store new user score following completion of quiz
 function saveHighScore() {
     // Retrieve saved topScore from localstorage, or if not any, set variable 'highScores to an empty array
     let highScores =
@@ -164,3 +161,13 @@ function saveHighScore() {
     window.localStorage.setItem("topScore", JSON.stringify(highScores));
 };
 
+// Function configured to analyze scores within local storage and display current highscore on scoreboard el
+function analyzeHighScores() {
+    let arrOfScores = [];
+    let localStorageArr = JSON.parse(window.localStorage.getItem("topScore"));
+    localStorageArr.forEach(function(el) {
+        arrOfScores.push(el.score);
+        arrOfScores.sort(function(a, b){return b-a});
+    });
+    $("#highScore").html("High Score: " + arrOfScores[0]);
+};
