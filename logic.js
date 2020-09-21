@@ -11,9 +11,44 @@ let questions = [
         answer: "JavaScript"
     },
     {
+        question: "Does HTML stand for?",
+        choices: ["Hyper Trainer Marking Language", "Hyper Text Markup Language" ],
+        answer: "Hyper Text Markup Language"
+    },
+    {
         question: "Is CSS fun",
         choices: ["Yes", "No" ],
         answer: "Yes"
+    },
+    {
+        question: "Is CSS fun",
+        choices: ["Yes", "No" ],
+        answer: "Yes"
+    },
+    {
+        question: "Which is NOT a valid JavaScript Data Type?",
+        choices: ["Objects", "Strings", "Number", "Coffee" ],
+        answer: "Coffee"
+    },
+    {
+        question: "Where can you view the Developer Console tool?",
+        choices: ["VS Code", "NotePad", "Chrome Browser" ],
+        answer: "Chrome Browser"
+    },
+    {
+        question: "In Global Scope, variables are declared outside of blocks (global variables).",
+        choices: ["True", "False"],
+        answer: "True"
+    },
+    {
+        question: "Scope pollution is when we have too many global variables that exist in the global namespace. It is not good practice to define variables in the global scope.",
+        choices: ["True", "False"],
+        answer: "True"
+    },
+    {
+        question: "What datatypes can Arrays store?",
+        choices: ["Objects only", "Strings only", "Numbers only", "All Data Types"],
+        answer: "All Data Types"
     },
     {
         question: "",
@@ -84,7 +119,6 @@ $('#tryAgain').on("click", function () {
 });
 
 // Functions 
-// NEED TO ADD LOGIC SO THAT WHEN TIME IS AT ZERO, SUBMIT SCREEN APPEARS 
 function timer() {
     let interval = setInterval(function() {
         timeRemaining--;
