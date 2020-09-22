@@ -46,7 +46,7 @@ let questions = [
         answer: "True"
     },
     {
-        question: "What datatypes can Arrays store?",
+        question: "What data types can Arrays store?",
         choices: ["Objects only", "Strings only", "Numbers only", "All Data Types"],
         answer: "All Data Types"
     },
@@ -89,17 +89,18 @@ $(document).on("click", ".selection", function(){
     let selection = this.value;
     if (selection === questions[currentQuestionIndex].answer) {
         userScore = (userScore) + 5;
-        $('#feedback').html("Correct!")
+        $('#feedback').text("Correct!")
         currentQuestionIndex = currentQuestionIndex + 1;
         getQuestion();
     } else {
         userScore = (userScore) - 1;
-        $('#feedback').html("Wrong!");
+        $('#feedback').text("Wrong!");
     };
 });
 
 // Click event configured on 'Submit' button (id=submit) to transition screen scoreboard el displaying scores 
 $('#submit').on("click", function(){
+    $('#feedback').empty();
     if (userName.val() === "") {
         $('#feedback').html("Please Enter a User Name!");
     } else {
@@ -126,7 +127,8 @@ function timer() {
         if (timeRemaining === 0) {
             clearInterval(interval);
             $(beginScreenEl).addClass("d-none");
-            $(submitScoreEl).removeClass("d-none");    
+            $(submitScoreEl).removeClass("d-none");
+            $('#feedback').empty();    
         };
     }, 1000);
 };
@@ -137,7 +139,7 @@ function getQuestion() {
         $('#feedback').empty();
         $(beginScreenEl).addClass("d-none");
         $(submitScoreEl).removeClass("d-none");
-        $(yourScore).html("Your Score: " + userScore);
+        $(yourScore).text("Your Score: " + userScore);
     } else {
     $('#question-choices').empty();
     $('#question-title').empty();
@@ -145,7 +147,7 @@ function getQuestion() {
     currentTitle   = questions[currentQuestionIndex].question;
     currentChoices.forEach(function(value, i){
         let choiceSelection = $('<button></button>'); 
-        choiceSelection.html((i + 1) + '. ' + value)
+        choiceSelection.text((i + 1) + '. ' + value)
         choiceSelection.addClass("selection btn-dark d-flex align-items-vertical m-3");
         choiceSelection.attr({
             type: "button",
