@@ -10,34 +10,23 @@ I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
 SO THAT I can gauge my progress compared to my peers
 ```
 
-## Acceptance Criteria
+## Demo of the Application
 
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
-```
+https://drive.google.com/file/d/12cHngEObxFsBLXvCP2VW48C3ckbovBHG/view
 
-The following animation demonstrates the application functionality:
-
-![code quiz](./Assets/04-web-apis-homework-demo.gif)
-
-### Review
-
-You are required to submit the following for review:
+## Access to the Application
 
 * The URL of the functional, deployed application.
 https://ac08.github.io/CodeQuiz/
 
 * The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
 https://github.com/ac08/CodeQuiz
+
+## Screenshots of the Application
+<!-- Code Quiz Start -->
+<img src="Assets/imgs/CodeQuiz Start.png" alt="code quiz start">
+
+<!-- Code Quiz Live -->
+<img src="Assets/imgs/CodeQuiz Live.png" alt="code quiz live">
+
 - - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
